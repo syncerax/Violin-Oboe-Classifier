@@ -101,8 +101,8 @@ def process_training_data(directory, num_chunks):
     values = np.arange(len(keys))
     instrument_label_map = dict(zip(keys, values))
 
-    labels = np.zeros((len(file_data), 1))
+    labels = np.zeros((1, len(file_data)))
     for i, insts in enumerate(instruments):
-        labels[i] = instrument_label_map[insts]
+        labels[0, i] = instrument_label_map[insts]
 
     return features, labels
